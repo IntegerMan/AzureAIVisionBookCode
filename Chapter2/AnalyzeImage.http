@@ -1,0 +1,10 @@
+﻿@endpoint=https://YourEndpoint.cognitiveservices.azure.com
+@key=YourKey
+
+POST {{endpoint}}/computervision/imageanalysis:analyze?api-version=2023-02-01-preview&features=caption
+Content-Type: application/json
+Ocp-Apim-Subscription-Key: {{key}}
+
+{
+  "url": "https://bit.ly/engineer-costume"
+}

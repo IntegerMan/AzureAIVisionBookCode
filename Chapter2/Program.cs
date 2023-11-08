@@ -14,47 +14,40 @@ using VisionSource source = VisionSource.FromFile(filePath);
 
 //string imageUrl = "https://bit.ly/engineer-costume";
 //using VisionSource source = VisionSource.FromUrl(imageUrl);
-string choice;
 
 Console.WriteLine("Azure AI Vision Image Analysis Demos");
 
-do {
-    Console.WriteLine();
-    Console.WriteLine("1) Analyze Image");
-    Console.WriteLine("2) Background Removal");
-    Console.WriteLine("3) Foreground Matting");
-    Console.WriteLine("Q) Quit");
-    Console.WriteLine();
-    Console.Write("What would you like to do? ");
+Console.WriteLine();
+Console.WriteLine("1) Analyze Image");
+Console.WriteLine("2) Background Removal");
+Console.WriteLine("3) Foreground Matting");
+Console.WriteLine();
+Console.Write("What would you like to do? ");
 
-    choice = Console.ReadLine()!.ToUpper().Trim();
+string choice = Console.ReadLine()!.ToUpper().Trim();
 
-    Console.WriteLine();
+Console.WriteLine();
 
-    switch (choice) {
-        case "1":
-            AnalyzeImage();
-            break;
+switch (choice) {
+    case "1":
+        AnalyzeImage();
+        break;
 
-        case "2":
-            RemoveBackground();
-            break;
+    case "2":
+        RemoveBackground();
+        break;
 
-        case "3":
-            ForegroundMatting();
-            break;
+    case "3":
+        ForegroundMatting();
+        break;
 
-        case "Q":
-            Console.WriteLine("Thank you for using the demo");
-            break;
+    default:
+        Console.WriteLine("Invalid choice");
+        break;
+}
 
-        default:
-            Console.WriteLine("Invalid choice. Valid choices are:");
-            break;
-    }
-
-} while (choice != "Q");
-
+Console.WriteLine();
+Console.WriteLine("Thank you for using the Azure AI Vision Demo");
 
 void AnalyzeImage() {
     ImageAnalysisOptions analysisOptions = new() {

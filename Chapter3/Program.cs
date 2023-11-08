@@ -26,10 +26,22 @@ if (result.Reason == ImageAnalysisResultReason.Error)
 } 
 else if (result.Reason == ImageAnalysisResultReason.Analyzed) 
 {
+    // Read lines
     DetectedText text = result.Text;
-
     foreach (DetectedTextLine line in text.Lines) 
     {
         Console.WriteLine($"{line.Content}");
+    }
+
+    Console.WriteLine();
+
+    // Read words with confidences
+    foreach (DetectedTextLine line in text.Lines) 
+    {
+        foreach (DetectedTextWord word in line.Words) 
+        {
+            Console.Write($"{word.Content} ({word.Confidence:P2}) ");
+        }
+        Console.WriteLine();
     }
 }

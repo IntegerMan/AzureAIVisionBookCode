@@ -1,10 +1,10 @@
-﻿@endpoint=https://YourEndpoint.cognitiveservices.azure.com
+﻿@endpoint=https://YourEndpoint.cognitiveservices.azure.com/
 @key=YourKey
 
-POST {{endpoint}}/computervision/imageanalysis:analyze?api-version=2023-02-01-preview&features=caption
+POST {{endpoint}}/computervision/imageanalysis:analyze?api-version=2023-02-01-preview&features=read
 Content-Type: application/json
 Ocp-Apim-Subscription-Key: {{key}}
 
 {
-  "url": "https://bit.ly/engineer-costume"
+  "url": "https://raw.githubusercontent.com/IntegerMan/AzureAIVisionBookCode/main/Chapter3/Penmanship.jpg"
 }

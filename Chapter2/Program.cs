@@ -116,9 +116,10 @@ void RemoveBackground() {
         Console.WriteLine($"{error.Message} ({error.ErrorCode})");
     } else if (result.Reason == ImageAnalysisResultReason.Analyzed) {
         int width = result.SegmentationResult.ImageWidth;
-        int height = result.SegmentationResult.ImageWidth;
+        int height = result.SegmentationResult.ImageHeight;
+        ;
 
-        Console.WriteLine($"Analyzed image with a {width}x{height}px result");
+        Console.WriteLine($"Analyzed {width}x{height}px image");
 
         File.WriteAllBytes("BackgroundRemoval.png", result.SegmentationResult.ImageBuffer.ToArray());
     }
@@ -139,9 +140,9 @@ void ForegroundMatting() {
         Console.WriteLine($"{error.Message} ({error.ErrorCode})");
     } else if (result.Reason == ImageAnalysisResultReason.Analyzed) {
         int width = result.SegmentationResult.ImageWidth;
-        int height = result.SegmentationResult.ImageWidth;
+        int height = result.SegmentationResult.ImageHeight;
 
-        Console.WriteLine($"Analyzed image with a {width}x{height}px result");
+        Console.WriteLine($"Analyzed {width}x{height}px image");
 
         File.WriteAllBytes("ForegroundMatting.png", result.SegmentationResult.ImageBuffer.ToArray());
     }
